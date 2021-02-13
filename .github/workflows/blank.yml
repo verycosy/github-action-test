@@ -25,6 +25,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: create env
+        id: vars
         run: |
           branch=${GITHUB_REF##*/} 
           echo "::set-output name=GREETING::GREETING_${branch^^}"
