@@ -30,4 +30,4 @@ jobs:
           echo "::set-output name=GREETING::GREETING_${branch^^}"
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo ${{ secrets[env.GREETING] }}
+        run: echo "GREETING is ${{ secrets[steps.vars.outputs.GREETING] }}"
