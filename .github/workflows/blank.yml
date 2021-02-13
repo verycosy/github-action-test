@@ -27,6 +27,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
+      - name: create env
+        run: |
+          branch=${GITHUB_REF##*/} 
+          echo "::set-output name=GREETING::GREETING_${branch^^}"
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo "${{ secrets[env.GREETING] }}"
+        run: echo ${{ secrets[env.GREETING] }}
